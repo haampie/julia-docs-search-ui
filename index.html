@@ -87,21 +87,29 @@
           stuff += '<p class="h5"><code>' + object.full + '</code> <small class="text-muted">— ' + object.category + '</small></p>';
         }
 
-        let is_section = false;
+        if (object.type == 'Documentation') {
+          let is_section = false;
 
-        for (let key of ['header7','header6','header5','header4','header3','header2','header1'])
-        {
-          if(object[key] !== undefined) {
-            stuff += '<p class="h5">' + object[key] + ' <small class="text-muted">— Section</small></p>'
-            is_section = true;
-            break;
+          for (let key of ['header7','header6','header5','header4','header3','header2','header1'])
+          {
+            if(object[key] !== undefined) {
+              stuff += '<p class="h5">' + object[key] + ' <small class="text-muted">— Section</small></p>'
+              is_section = true;
+              break;
+            }
+          }
+
+          if( !is_section) {
+            stuff += '<p class="small">';
+            stuff += object._snippetResult['content'].value;
+            stuff += '</p>';
           }
         }
 
-        if( !is_section) {
-          stuff += '<p class="small">';
-          stuff += object._snippetResult['content'].value;
-          stuff += '</p>';
+        if (object.type == 'Code') {
+            stuff += '<pre><code>';
+            stuff += object._highlightResult['content'].value;
+            stuff += '</code></pre>';
         }
 
         let count = 0;
