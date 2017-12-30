@@ -42,6 +42,9 @@
       .ais-hits--item {
         cursor: pointer;
       }
+      .space {
+        margin: 1rem 0;
+      }
     </style>
 
   </head>
@@ -61,8 +64,9 @@
       </div>
       <div class="row">
         <div class="col">
-          <div id="navigation"></div>
+          <div id="navigation1" class="space"></div>
           <div id="hits" class="list-group"></div>
+          <div id="navigation2" class="space"></div>
         </div>
       </div>
     </div>
@@ -151,7 +155,21 @@
 
       search.addWidget(
         instantsearch.widgets.pagination({ 
-          container: document.getElementById('navigation'),
+          container: document.getElementById('navigation1'),
+          cssClasses: {
+            item: 'page-item',
+            root: 'pagination',
+            link: 'page-link',
+            active: 'active',
+            disabled: 'disabled',
+            padding: 0
+          }
+        })
+      );
+
+      search.addWidget(
+        instantsearch.widgets.pagination({ 
+          container: document.getElementById('navigation2'),
           cssClasses: {
             item: 'page-item',
             root: 'pagination',
