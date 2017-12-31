@@ -19,7 +19,7 @@
                     </ais-results>
 
                     <nav class="my-2">
-                        <ais-pagination :class-names="paginationClasses" padding="2">
+                        <ais-pagination :class-names="paginationClasses" :padding="2">
                             <template inline slot="first">«</template>
                             <template inline slot="last">»</template>
                             <template inline slot="next">›</template>

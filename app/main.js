@@ -14,6 +14,12 @@ const router = new VueRouter({
     routes: [
         {
             name: 'home',
+            path: '/julia-docs-search-ui',
+            component: Search,
+            props: route => ({ queryParameters: route.query }),
+        },
+        {
+            name: 'home',
             path: '/',
             component: Search,
             props: route => ({ queryParameters: route.query }),
